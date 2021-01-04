@@ -31,5 +31,7 @@ public class Main {
         double kilos = lbs * kiloConversion;
         System.out.println(kilos);
 
+        // use BigDecimal when needing precise calculations! ex. currency 
+
     }
 }
