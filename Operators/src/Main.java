@@ -22,5 +22,12 @@ public class Main {
         result %= 3;
         System.out.println(result);
 
+        result++;
+        System.out.println(result);
+
+        result--;
+        System.out.println(result);
+
+
     }
 }
