@@ -28,6 +28,18 @@ public class Main {
         result--;
         System.out.println(result);
 
+        boolean isAlien = false;
+        if (!isAlien)
+            System.out.println("It is not an alien");
+
+        int topScore = 100;
+        int myScore  = 99;
+        if (myScore >= topScore) {
+            System.out.println("You have the top score");
+        } else {
+            System.out.println("You do not have the high score");
+        }
+
 
     }
 }
