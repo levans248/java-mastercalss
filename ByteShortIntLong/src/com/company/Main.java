@@ -39,6 +39,13 @@ public class Main {
 
         System.out.println("long min: " + myMinLongValue + " long max: " + myMaxLongValue);
 
+        byte byteValue = 100;
+        short shortValue = 130;
+        int intValue = 32768;
+
+        long myLong = 50000L + 10L * (byteValue + shortValue + intValue);
+
+        System.out.println(myLong);
 
     }
 }
