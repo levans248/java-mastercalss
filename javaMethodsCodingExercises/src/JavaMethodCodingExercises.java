@@ -85,4 +85,57 @@ public class JavaMethodCodingExercises {
     public static boolean isTeen(int value) {
         return value >= 13 && value <= 19;
     }
+
+    public static double area(double radius) {
+        if (radius < 0) {
+            return -1;
+        }
+
+        return Math.pow(radius, 2) * Math.PI;
+    }
+
+    public static double area(double x, double y) {
+        if (x < 0 || y < 0) {
+            return -1;
+        }
+
+        return x * y;
+    }
+
+    public static void printYearsAndDays(long minutes) {
+        if (minutes < 0) {
+            System.out.println("Invalid Value");
+        } else {
+            long hours = minutes / 60;
+            long days = hours / 24;
+            long years = days / 365;
+            long daysLeftInYears = days % 365;
+
+            System.out.println(minutes + " min = " + years + " y and " + daysLeftInYears + " d");
+        }
+    }
+
+    public static void printEqual(int valueOne, int valueTwo, int valueThree) {
+        if (valueOne < 0 || valueTwo < 0 || valueThree < 0) {
+            System.out.println("Invalid Value");
+        } else if( valueOne == valueTwo && valueOne == valueThree) {
+            System.out.println("All numbers are equal");
+        } else if(valueTwo != valueThree && valueOne != valueThree && valueOne != valueTwo) {
+            System.out.println("All numbers are different");
+        } else {
+            System.out.println("Neither all are equal or different");
+        }
+    }
+
+    public static boolean isCatPlaying(boolean summer, int temperature) {
+        if (temperature >= 25) {
+            if(temperature <= 35) {
+                return true;
+            } else if (temperature <= 45 && summer) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
