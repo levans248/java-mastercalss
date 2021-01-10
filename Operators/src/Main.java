@@ -40,6 +40,15 @@ public class Main {
             System.out.println("You do not have the high score");
         }
 
+        double twenty = 20.00d;
+        double eighty = 80.00d;
+        double challengeResult = 100d * (twenty + eighty);
+        double remainder = challengeResult % 40.00d;
+        boolean hasRemainder = remainder == 0 ? false : true;
+        System.out.println(hasRemainder);
+        if(!hasRemainder) {
+            System.out.println("Got some remainder");
+        }
 
     }
 }
