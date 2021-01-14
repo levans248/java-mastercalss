@@ -1,9 +1,9 @@
-
+import java.util.Scanner;
 
 public class ControlFlowCodingExercises {
 
     public static void main(String args[]) {
-        numberToWords(100);
+        printSquareStar(8);
     }
 
     public static void printNumberInWord(int number) {
@@ -341,5 +341,135 @@ public class ControlFlowCodingExercises {
         }
 
         return count;
+    }
+
+    public static boolean canPack(int bigCount, int smallCount, int goal) {
+        if(bigCount < 0 || smallCount < 0 || goal < 0) {
+            return false;
+        }
+
+        int remainder = goal;
+        if (bigCount != 0 && goal >= 5) {
+            remainder = goal / 5;
+            remainder -= bigCount;
+
+            if(remainder < 0) {
+                remainder = 0;
+            }
+
+            remainder *= 5;
+            remainder += goal % 5;
+        }
+
+        if ( remainder == 0) {
+            return true;
+        } else {
+            if ( remainder <= smallCount) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static int getLargestPrime(int number) {
+        if (number <= 1) {
+            return -1;
+        }
+
+        int largestPrime = 1;
+        for(int i = 2; i <= number; i++) {
+            if(number % i == 0) {
+                for (int j = 2; j <= i; j++) {
+                    if (j == i) {
+                        largestPrime = i;
+                    } else if (i % j == 0) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return largestPrime;
+    }
+
+    public static void printSquareStar(int number) {
+        if (number < 5) {
+            System.out.println("Invalid Value");
+        } else {
+            for(int i = 1; i <= number; i++) {
+                for(int j = 1; j <= number; j++) {
+                    if (i == 1 || i == number || j == 1 || j == number) {
+                        System.out.print("*");
+                    } else if (i == j || (j == (number - i + 1))) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.print("\n");
+            }
+        }
+    }
+
+    public static void inputThenPrintSumAndAverage() {
+        Scanner scanner = new Scanner(System.in);
+
+        int count = 0;
+        int sum = 0;
+        long avg = 0;
+
+        while(true) {
+            if(scanner.hasNextInt()) {
+                sum += scanner.nextInt();
+                count++;
+                scanner.nextLine();
+            } else {
+                break;
+            }
+        }
+
+        if(count != 0) {
+            avg = Math.round((double) sum / count);
+        }
+
+        System.out.println("SUM = " + sum + " AVG = " + avg);
+    }
+
+    public static int getBucketCount(double width, double height, double areaPerBucket, int extraBuckets) {
+        if (extraBuckets < 0) {
+            return -1;
+        }
+
+        int requiredBuckets = getBucketCount(width, height, areaPerBucket);
+
+        if(requiredBuckets < 0) {
+            return requiredBuckets;
+        }
+
+        if(requiredBuckets <= extraBuckets) {
+            return 0;
+        }
+
+        return requiredBuckets - extraBuckets;
+    }
+
+    public static int getBucketCount(double width, double height, double areaPerBucket) {
+        if (width <= 0 || height <= 0  || areaPerBucket <= 0) {
+            return -1;
+        }
+
+        double area = width * height;
+        int requiredBuckets = (int) Math.ceil(area / areaPerBucket);
+
+        return requiredBuckets;
+    }
+
+    public static int getBucketCount(double area, double areaPerBucket) {
+        if(area <= 0 || areaPerBucket <= 0) {
+            return -1;
+        }
+
+        return (int) Math.ceil(area / areaPerBucket);
     }
 }
